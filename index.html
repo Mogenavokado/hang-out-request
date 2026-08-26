@@ -213,10 +213,20 @@
     const question = document.getElementById('question');
 
     function moveButton() {
-      const maxX = Math.max(0, window.innerWidth - noBtn.offsetWidth);
-      const maxY = Math.max(0, window.innerHeight - noBtn.offsetHeight);
+      // use actual rendered size so we don't place the button off-screen
+      const rect = noBtn.getBoundingClientRect();
+      const btnW = rect.width;
+      const btnH = rect.height;
+
+      // keep a small padding from the viewport edges
+      const padding = 8;
+
+      const maxX = Math.max(0, window.innerWidth - btnW - padding);
+      const maxY = Math.max(0, window.innerHeight - btnH - padding);
+
       const x = Math.random() * maxX;
       const y = Math.random() * maxY;
+
       noBtn.style.position = 'fixed';
       noBtn.style.left = `${x}px`;
       noBtn.style.top = `${y}px`;
