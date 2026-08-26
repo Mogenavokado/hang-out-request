@@ -221,8 +221,8 @@
       // keep a small padding from the viewport edges
       const padding = 8;
 
-      const maxX = Math.max(0, window.innerWidth - btnW - padding);
-      const maxY = Math.max(0, window.innerHeight - btnH - padding);
+      const maxX = Math.random() * (window.innerWidth - btnW - padding);
+      const maxY = Math.random() * (window.innerHeight - btnH - padding);
 
       const x = Math.random() * maxX;
       const y = Math.random() * maxY;
